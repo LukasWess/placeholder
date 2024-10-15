@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1><%= headerTitle %></h1>
+      </div>
+    </header>
+    <main class="container">
+      <div class="dashboard-grid">
+        <div class="dashboard-item">
+          <h2>Stock Market Overview</h2>
+          <% stockData.forEach(function(stock) { %>
+          <div class="stock-data">
+            <span><%= stock.name %></span>
+            <span class="stock-price"><%= stock.price %></span>
+            <span
+              class="stock-change <%= stock.change > 0 ? 'positive' : 'negative' %>"
+              ><%= stock.change %>%</span
+            >
+          </div>
+          <% }); %>
+        </div>
+        <div class="dashboard-item">
+          <h2>Weather</h2>
+          <p>
+            <%= weather.city %>: <%= weather.temperature %>°F, <%=
+            weather.condition %>
+          </p>
+        </div>
+        <div class="dashboard-item">
+          <h2>Top News</h2>
+          <ul>
+            <% news.forEach(function(item) { %>
+            <li><%= item %></li>
+            <% }); %>
+          </ul>
+        </div>
+        <div class="dashboard-item chat-container">
+          <h2>AI Chat</h2>
+          <div class="chat-messages" id="chatMessages">
+            <!-- Messages will be added here dynamically -->
+          </div>
+          <div class="chat-input">
+            <input
+              type="text"
+              id="userInput"
+              placeholder="Type your message..."
+            />
+            <button onclick="sendMessage()">Send</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
