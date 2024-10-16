@@ -26,7 +26,7 @@ router.get("/", function (req, res, next) {
 
   res.render("index", {
     title: "Express",
-    headerTitle: "Elsker deg Helene",
+    headerTitle: "kinda wierd no? this whole thing called life",
     stockData: stockData,
     weather: weather,
     news: news,
